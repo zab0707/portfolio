@@ -3,11 +3,13 @@ import React from 'react';
 import Carousel from './Project/Carousel';
 import CarouselDetails from './Project/CarouselDetails';
 
-const range = (start, end) => Array(end-start + 1).fill().map((_, idx) => start + idx);
-
 const Projects = () => {
-  const aiImg = range(2, 20);
-  const rsImg = range(2, 12);
+  const importAll = (r) => {
+      return r.keys().map(r);
+  }
+  const aiImg = importAll(require.context('../../../public/assets/img/projects/ai', false, /\.(png|jpe?g|svg)$/));
+  const rsImg = importAll(require.context('../../../public/assets/img/projects/rs', false, /\.(png|jpe?g|svg)$/));
+  const csVid = importAll(require.context('../../../public/assets/img/projects/cs', false, /\.(mp4|mkv)$/));
   const cData = {
     Informatics: {title: 'Informatics', name: 'AI-Based Attendance Monitoring', desc: 'A Web application to manage and update the attendance of students based on the group image captures during a particular className. This application permits the student to raise complaints regarding their attendance, apply for special leave of absence with a document of proof and this application permits the student to view their attendance percentage and how they can improve.', tech: 'Django, SQLite, face-recognition, HTML, CSS, Bootstrap, JavaScript, jQuery, Ajax'},
     Housing:
@@ -26,7 +28,7 @@ const Projects = () => {
           <div className="col-md-8 col-lg-8">
             <div className="card border-0">
               <div className="card-body">
-                <Carousel id='carouselAI' item={aiImg} path='assets/img/projects/ai/' exe='jpg'/>
+                <Carousel id='carouselAI' item={aiImg}/>
               </div>
             </div>
           </div>
@@ -38,7 +40,7 @@ const Projects = () => {
           <div className="col-md-8 col-lg-8">
             <div className="card border-0">
               <div className="card-body">
-                <Carousel id='carouselRS' item={rsImg} path='assets/img/projects/rs/' exe='jpg'/>
+                <Carousel id='carouselRS' item={rsImg}/>
               </div>
             </div>
           </div>
@@ -51,7 +53,7 @@ const Projects = () => {
             <div className="card border-0">
               <div className="card-body">
                 <div className="embed-responsive embed-responsive-16by9">
-                  <iframe title="car" className="embed-responsive-item" src="assets/img/projects/cs/cs.mp4" allowFullScreen></iframe>
+                  <iframe title="car" className="embed-responsive-item" src={csVid[0]['default']} allowFullScreen></iframe>
                 </div>
               </div>
             </div>

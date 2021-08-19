@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CerItem = ({name}) => {
-  if(name){
-    return (
-      <img style={{border: '1px solid black'}} width="400" height="300" src={`assets/certificates/${name}.jpg`} alt={name} />
-    );
-  }
-  return(<div></div>);
+const CerItem = (props) => {
+  
+  return (
+    <div className={(props.alt === 0) ? 'carousel-item active': 'carousel-item'}>
+      <img className="d-block w-100 h-100" src={props.path} alt={`${props.alt} slide`} />
+    </div>
+  );
 };
 
 export default CerItem;

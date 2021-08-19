@@ -115,15 +115,7 @@ const Resume = () => {
                   <div className="heading">
                       <h2 className="text-center">Certificates & Badges</h2>
                   </div>
-                  <Certificates c1='csc' c2='pc'/>
-                  <br />
-                  <Certificates c1='pds' c2='fig'/>
-                  <br />
-                  <Certificates c1='iweb' c2='dt'/>
-                  <br />
-                  <Certificates c1='dn' c2='lurp'/>
-                  <br/>
-                  <Certificates c1='lurc' c2=''/>
+                  <Certificates />
                 </div>   
             </div>
         </section>

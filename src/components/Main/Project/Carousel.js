@@ -2,15 +2,12 @@ import React from 'react';
 
 import CarouselItem from './CarouselItem';
 
-const Carousel = ({id, item, path, exe}) => {
+const Carousel = ({id, item}) => {
   return(
     <div id={id} className="carousel slide" data-ride="carousel">
       <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img className="d-block w-100" src={`${path}/1.${exe}`} alt={`1 slide`} />
-        </div>
-        {item.map((i) => {
-          return <CarouselItem path={`${path}${i}.${exe}`} alt={i} key={i} />;
+        {item.map((img, i) => {
+          return <CarouselItem path={img['default']} alt={i} key={i} />;
         })
         }
       </div>
